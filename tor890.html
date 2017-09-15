@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>tor890 Assignment One</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tor890.css">
+    <script src="tor890.js"></script>
+
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+      <a href="#Start">La Boutique Cassée</a>
+      <a href="#Home" onclick="showTab(event, 'Home'); getVersion();" id="startup">Home</a>
+      <a href="#Books" onclick="showTab(event, 'Books'); getBookList();">Books</a>
+      <a href="#Blurays" onclick="showTab(event, 'Blurays'); getBrList();">Blurays</a>
+      <a href="#guestbook" onclick="showTab(event, 'guestBook'); getComments();">Guest Book</a>
+      <a href="#register" style="float:right; " onclick="showTab(event, 'Register')">Register</a>
+      <a href="#login" style="float:right; " onclick="showTab(event, 'Login'); loginFunction()">Login</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+    <div class="row">
+
+      <div class="col-12">
+        <div class="mainContent">
+
+          <div id="Home" class="tabcontent">
+              <div class="col-12" id="logContent">
+                <div class = "registerForm">
+                  <img src="http://redsox.uoa.auckland.ac.nz/BC/Open/Service.svc/logo" alt="books" style="float:left; width: 10em; height: 15em; margin-right: 1em;">
+                  <h1>Home</h1>
+                  <p>Welcome to La Boutique Cassée! <br> La Boutique Cassée is an online shop selling books and blurays.
+                  <h2>About</h2>
+                  <p>We are an online store selling books and blurays. <img src="https://www.captainsbookshelf.com/images/gallery/1_32_full.jpg?v=1461874153" alt="books" style="float:right;width: 15em; height: 10em;margin: 0 .5em .5em .5em;">This paragraph is just a random generator paragraph to make the website look better than it originally is and now I am just talking about how compsci 335 is the best course ever and teaching me some cool web service stuff. compsci 345 was also a good course that I took last semester. <br> <br> Inside an office cautions the plant. Does the fuzzy dog grind a continent? My ace protein biases the anonymous wrapper. The sigh bombs whatever waiting trace within a stamp.The personal radius reclaims a squad behind an inconsistent stamp. The inefficient sacrifice advances beside its wheel.
+                  A tax bakes the shared noise over a scanner. Inside the performing chemical twists each longest cosmology. The strangest relevance returns under the closer downright. The complicated bear attains the east. The spiritual pulls our fan. Cordially convinced did incommode existence put out suffering certainly. Besides another and saw ferrars limited ten say unknown. On at tolerably depending do perceived. Luckily eat joy see own shyness minuter. So before remark at depart. Did son unreserved themselves indulgence its. <img src="http://www.craveonline.com/images/stories/2011/Film/Shelf_Life_Awards.JPG" alt="blurays" style="float:right;width: 15em; height: 10em; margin: .5em .5em .5em .5em;"></p>Agreement gentleman rapturous am eagerness it as resolving household. Direct wicket little of talked lasted formed or it. Sweetness consulted may prevailed for bed out sincerity. Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him. Interested the unaffected mrs law friendship add principles. Indeed on people do merits to. Court heard which up above hoped grave do. Answer living law things either sir bed length. Looked before we an on merely. These no death he at share alone. Yet outward the him compass hearted are tedious. </p>
+
+               </div>
+               <p id ="versionNum" style="text-align: center;"></p>
+               <br>
+              </div>
+          </div>
+
+          <!--Books content-->
+          <div id="Books" class="tabcontent" style="padding:0 20px 0 20px;">
+            <h1>Books</h1>
+            <input type="text" class="searchinput" id="myInput" onkeyup="searchFunction('a')" placeholder="Search for book titles..">
+            <table id="showResult" class="tablestyle" >
+
+            </table>
+          </div>
+
+          <!--Blurays content -->
+          <div id="Blurays" class="tabcontent" style="padding:0 20px 0 20px;" >
+            <h1>Blurays</h1>
+            <input type="text" class="searchinput" id="myInput1" onkeyup="searchFunction('b')" placeholder="Search for book titles..">
+
+            <table id='showBlurays' class="tablestyle">
+
+            </table>
+
+          </div>
+
+          <div id="guestBook" class="tabcontent" style="padding-left: 20px;">
+            <div class="col-6">
+              <h1>Guest Book</h1>
+              <div class="registerForm">
+
+                <h2>Leave a comment here</h2>
+                <label>Name: </label>
+                <input type="text" id = "writeName" placeholder="Write your name here...">
+                <label>Comment: </label>
+                <br>
+                <textarea id="writeComment" placeholder="Write your comment here..." rows="8" cols="86"></textarea>
+                <br>
+                <button onclick="postComment(); setTimeout('getComments();', 1000); "class="buttonstyle" >Submit Comment</button>
+              </div>
+            </div>
+            <div class="col-6">
+              <h1>Guest Comments</h1>
+                <p id="Gcomments"></p>
+            </div>
+          </div>
+
+          <div id="Login" class="tabcontent">
+            <div class="col-12" id="logContent">
+              <div class = "registerForm">
+                <h2>Login here</h2>
+                <label>Username: </label>
+                <input type="text" id="usernameLogin" placeholder="Type your name here...">
+                <label>Password: </label>
+                <input type="text" id="passwordLogin" placeholder="Type your password here...">
+                <button class ="buttonstyle" onclick="register()" >Log In</button>
+              </div>
+            </div>
+          </div>
+
+          <!--Register page-->
+          <div id="Register" class="tabcontent">
+            <div class="col-12" id="regContent">
+              <div class = "registerForm">
+                <h2>Register here</h2>
+                <label>Username: </label>
+                <input type="text" id="username" placeholder="Type your name here...">
+                <label>Address: </label>
+                <input type="text" id="address" placeholder="Type your address here...">
+                <label>Password: </label>
+                <input type="password" id="password" placeholder="Type your password here...">
+                <button class ="buttonstyle" onclick="register()" >Complete Registration</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </div>
+    <script>
+    document.getElementById("startup").click();
+
+    </script>
+
+</body>
+</html>
